@@ -1,0 +1,267 @@
+ 
+     @font-face {
+            font-family: myFirstFont;
+            src: url(digital-7.ttf);
+        }
+
+        #clock {
+            font-family: myFirstFont;
+            width: 300px; height: 100px;
+            
+            font-size: 4em;
+            color: white;
+            position: absolute;
+            left: 45%; top: 50%;
+            margin-left: -125px; margin-top: -50px;
+            text-align: center;
+            line-height: 100px;
+            z-index: 1;
+            -webkit-transition: 1s ease-in-out;
+            cursor: pointer;
+        }
+        #clock:hover{
+          
+            transform: scale(0.9);
+        
+          
+        }
+        .date {
+              position: absolute;
+              width: 70px;
+                height: 40px;
+              font-family: Georgia, serif;
+              left: 67%; top: 46%;
+              color: white;
+              margin: 0 auto;
+              z-index: 1;
+              -webkit-transition: 1s ease-in-out;
+               cursor: pointer;
+             }
+        .date:hover{
+            transform: scale(0.9);
+        }
+          
+            #day, #dd, #year,#month {
+              position: absolute;
+              }
+             
+            #day { 
+              font-size: 30px;
+              top: 14px;
+              }
+             
+            #dd { 
+              top: 2px;
+              left: 0;  
+              font-size: 18px;
+              }
+            #month{
+                top:-6px;
+                left:60px;
+                font-size: 58px
+
+
+            }
+            #year { 
+              top: 15px;
+              right: 4px;
+              font-size: 20px;
+              rotation: -90deg !important;
+              
+              -webkit-transform: rotate(-90deg);
+              -moz-transform: rotate(-90deg);  
+                }
+            .clock-circle {
+              width: 180px;
+              height: 180px;
+              margin: 0 auto;
+              position:absolute;
+              border: 8px solid #fff;
+              border-radius: 50%;
+              -webkit-box-shadow: 0 1px 8px rgba(34, 34, 34, 0.3),inset 0 1px 8px rgba(34, 34, 34, 0.3);
+              box-shadow: 0 1px 8px rgba(34, 34, 34, 0.3),inset 0 1px 8px rgba(34, 34, 34, 0.3);
+              z-index:1;
+              left: 40%; top: 35%;
+              display: none;
+              -webkit-transition: 1s ease-in-out;
+              cursor: pointer;
+              }
+            .clock-circle:hover{
+               transform: scale(0.9);
+
+            }
+            .clock-face {
+              width: 100%;
+              height: 100%;
+            }
+            .clock-hour{
+              width:0;
+              height:0;
+              position:absolute;
+              top:50%;
+              left:50%;
+              margin:-4px 0 -4px -25%;
+              padding:4px 0 4px 25%;
+              background:#fff;
+              -webkit-transform-origin:100% 50%;
+              -ms-transform-origin:100% 50%;
+              transform-origin:100% 50%;
+              border-radius:4px 0 0 4px;
+            }
+            .clock-minute{
+              width:0;
+              height:0;
+              position:absolute;
+              top:50%;
+              left:50%;
+              margin:-40% -3px 0;
+              padding:40% 3px 0;
+              background:#fff;
+              -webkit-transform-origin:50% 100%;
+              -ms-transform-origin:50% 100%;
+              transform-origin:50% 100%;
+              border-radius:3px 3px 0 0;
+            }
+            .clock-second{
+              width:0;
+              height:0;
+              position:absolute;
+              top:50%;
+              left:50%;
+              margin:-40% -1px 0 0;
+              padding:40% 1px 0;
+              background:#fff;
+              -webkit-transform-origin:50% 100%;
+              -ms-transform-origin:50% 100%;
+              transform-origin:50% 100%;
+            }
+            .clock-face:after {
+                position:absolute;
+                top:50%;
+                left:50%;
+                width:12px;
+                height:12px;
+                margin:-6px 0 0 -6px;
+                background:#fff;
+                border-radius:6px;
+                content:"";
+                display:block;
+                z-index:1;
+            }
+             td.not-current {
+        color: #777;
+      }
+      body {
+        background: grey;
+      }
+      td{
+        padding: 5px;
+      }
+      #divCalendar{
+        left: 70%; top: 30%;
+        position:absolute;
+        width:245px;
+        color: white;
+        border: 5px solid white;
+        border-radius: 15px;
+        font-family: Consolas;
+        border-spacing: 0px;
+        border-collapse: separate;
+        font-size: 15px;
+        font-weight: bold;
+        z-index: 1;
+        display:none;
+        -webkit-transition: 1s ease-in-out;
+        cursor: pointer;
+      }
+      #pp{
+        z-index: 1;
+        position: absolute;
+        top: -50px;
+        left: 0px;
+        -webkit-transition: 1s ease-in-out;
+        cursor: pointer;
+      }
+      #pp:hover{
+          transform: scale(0.9);
+
+      }
+      #weather{
+         left: 8%; top: 35%;
+        position:absolute;
+        width:245px;
+        color: white;
+        
+        border-radius: 15px;
+        /*font-family: Consolas;*/
+        border-spacing: 0px;
+        border-collapse: separate;
+        font-size: 40px;
+        
+        z-index: 1;
+        
+        -webkit-transition: 1s ease-in-out;
+        cursor: pointer;
+
+
+      }
+    #weather:hover{
+               transform: scale(0.9);
+
+            }
+      .wimg{
+
+         z-index: 6;
+          width: 180px;
+          height: 180px;
+          color: white;
+          border-top-right-radius: 10px;
+          
+
+      }
+      #Tempeature{
+        font-family: Georgia, serif;
+        font-size: 60px;
+        font-weight: normal;
+        top:0px;
+        left:150px;
+        position:absolute;
+        
+      }
+      #tt{
+        font-family: Georgia, serif;
+        font-size: 60px;
+        font-weight: normal;
+        top:0px;
+        left:150px;
+        position:absolute;
+        
+      }
+      #type,#wind,#humidity,#Temperature_d{
+         font-family: Georgia, serif;
+         font-weight:normal;
+         position:absolute;
+      }
+      #weather_detail{
+        font-weight: bold;
+          left: 13%; top: 30%;
+        position:absolute;
+        width:245px;
+        color: white;
+        
+        border-radius: 15px;
+        /*font-family: Consolas;*/
+        border-spacing: 0px;
+        border-collapse: separate;
+        
+        z-index: 1;
+        
+        -webkit-transition: 1s ease-in-out;
+        cursor: pointer;
+        display: none;
+        
+      }
+       #weather_detail:hover{
+               transform: scale(0.9);
+
+            }

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html  >
+	<head>
+        <meta charset="UTF-8" />
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title>Widgets</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/component.css" />
+        <link rel="stylesheet" type="text/css" href="css/allcss.css" />
+
+        <script src="js/all.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script >
+         var url="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22islamabad%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
+        $.getJSON(url, function(data) {
+          
+            if (!data.query.results.channel.item.condition)location.reload();
+            
+        else {
+            
+          var info = data.query.results.channel.item.condition;
+          
+          document.getElementById('weather').innerHTML += '<img class = "wimg" src="img/weathericons/'+info.code+'.svg" >';
+          console.log(info.code);
+          console.log(info.temp);
+           document.getElementById('weather_detail').innerHTML += '<img  class = "wimg" src="img/weathericons/'+info.code+'.svg" style="top: 0px;left: -7px;position: absolute;">';
+           
+           info.temp = Math.floor((info.temp-32)/1.8);
+           document.getElementById('weather_detail').innerHTML += '<p id ="tt" style=" font-size:40px; top:80px; left:50px;">'+ info.temp + '&deg;C</p>';
+          document.getElementById('Tempeature').innerHTML = '' + info.temp+'&deg;C';
+          document.getElementById('type').innerHTML = info.text;
+          info = data.query.results.channel.wind;
+          document.getElementById('wind').innerHTML = ''+ info.chill+ 'km/h';
+          info = data.query.results.channel.atmosphere;
+          document.getElementById('humidity').innerHTML = '' +info.humidity +'%';
+          }//document.getElementById('w').innerHTML = data.query;
+
+
+        });
+
+    </script>
+      <style type="text/css">
+     
+
+    </style>
+	</head>
+	<body onload="updateClock(); setInterval('updateClock()', 1000 );date(); ">
+		<div class="container demo-2">
+			<div class="content">
+                <div id="large-header" class="large-header">
+                    <canvas id="demo-canvas"></canvas>
+                 </div>
+                 <div id="clock" onclick="analog()">dd</div>
+                 <div class="date" onclick="dateFade()">
+                      <span Id="day"></span>
+                      <span id="dd"></span>
+                      <span id="month"></span>
+                      <span id="year"></span>
+                </div>
+                <div class="clock-circle" onclick="digital()">
+                  <div class="clock-face">
+                   <div id="hour" class="clock-hour"></div>
+                   <div id="minute" class="clock-minute"></div>
+                   <div id="second" class="clock-second"></div>
+                  </div>
+                
+              </div>
+              
+              
+              <div id="divCalendar" >
+                
+              </div>
+              <div id = "weather" onclick="wFade()">
+                 
+                <p id ='Tempeature'></p>
+              </div> 
+              <div id = "weather_detail" onclick="w_detailFade()">
+                
+                <p id ='Tempeature' style=" font-size:40px; top:80px; left:50px;"></p>
+                <p id="type"  style="font-size:35px; top:130px; left: 0px;width: 240px;"></p>
+                <img src="img/Wind.svg" style=" top:180px; left:0px;position: absolute;">
+                <p id="wind" style=" top: 190px; left: 90px;position: absolute;font-size: x-large;"></p>
+                <img src="img/Droplet.svg" style="top: 240px; left: 10px;position: absolute;height: 70px;">
+                <p id="humidity" style="top: 230px; left: 90px;position: absolute;font-size: x-large;"></p>
+                
+               </div> 
+
+  
+        </div>
+        
+        <script src="js/demo-2.js"></script>
+	</body>
+</html>
